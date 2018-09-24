@@ -8,7 +8,6 @@
 #define FLEX_PIN_1 A0 // Pin connected to voltage divider output
 #define FLEX_PIN_2 A1 // Pin connected to voltage divider output
 #define FLEX_PIN_3 A2 // Pin connected to voltage divider output
-#define LED_PIN 8
 
 SoftwareSerial BT1(HC_05_TX_1ST, HC_05_RX_1ST); // Software Serial setup for RX / TX pins Bluetooth module 1
 
@@ -57,12 +56,6 @@ void loop()
   angle_1 = constrain(angle_1,0,9);                 
   Serial.println(angle_1);
   toSend += "A" + String(angle_1);
-  if(angle_1 > 2){
-    digitalWrite(LED_PIN,1);
-  }
-  else{
-    digitalWrite(LED_PIN,0);
-  }
   // Read the ADC, and calculate voltage and resistance from it
   int flexADC_2 = analogRead(FLEX_PIN_2);
   float flexV_2 = flexADC_2 * VCC / 1023.0;
