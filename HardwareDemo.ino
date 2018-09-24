@@ -18,8 +18,8 @@ const float R_DIV = 10000.0; // Measured resistance of 3.3k resistor
 
 // Upload the code, then try to adjust these values to more
 // accurately calculate bend degree.
-const float STRAIGHT_RESISTANCE = 37300.0; // resistance when straight
-const float BEND_RESISTANCE = 90000.0; // resistance at 90 deg
+const float STRAIGHT_RESISTANCE = 26900.0; // resistance when straight
+const float BEND_RESISTANCE = 150000.0; // resistance at 180 deg
 
 void setup() 
 {
@@ -52,7 +52,7 @@ void loop()
   float flexR_1 = R_DIV * (VCC / flexV_1 - 1.0);
   Serial.println("Resistance 1: " + String(flexR_1) + " ohms");
   int angle_1 = map(flexR_1, STRAIGHT_RESISTANCE, BEND_RESISTANCE,
-                   0, 10);
+                   0, 9);
   angle_1 = constrain(angle_1,0,9);                 
   Serial.println(angle_1);
   toSend += "A" + String(angle_1);
@@ -71,7 +71,7 @@ void loop()
   float flexR_3 = R_DIV * (VCC / flexV_3 - 1.0);
   Serial.println("Resistance 3: " + String(flexR_3) + " ohms");
   int angle_3 = map(flexR_3, STRAIGHT_RESISTANCE, BEND_RESISTANCE,
-                   0, 10);
+                   0, 9);
   angle_3 = constrain(angle_3,0,9);
   toSend += "C" + String(angle_3);
   Serial.println(toSend);

@@ -41,7 +41,7 @@ void loop()
       // Based on last received character, turn on appropriate LED
       // A is LED 0, B is LED 1, C is LED 2
       if(prevValue == 'A'){
-        if((valueRead- '0') > 6){
+        if((valueRead- '0') > 5){
           digitalWrite(LED_PINS[0],1);
         }
         else{
@@ -49,7 +49,7 @@ void loop()
         }
       }
       else if(prevValue == 'B'){
-        if((valueRead- '0') > 6){
+        if((valueRead- '0') > 5){
           digitalWrite(LED_PINS[1],1);
         }
         else{
@@ -57,7 +57,7 @@ void loop()
         }
       }
       else if(prevValue == 'C'){
-        if((valueRead - '0') > 6){
+        if((valueRead - '0') > 5){
           digitalWrite(LED_PINS[2],1);
         }
         else{
