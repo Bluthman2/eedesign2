@@ -11,20 +11,20 @@
 #include <port.h>
 
 /**
- * \brief Set PB1 pull mode
+ * \brief Set PB0 pull mode
  *
  * Configure pin to pull up, down or disable pull mode, supported pull
  * modes are defined by device used
  *
  * \param[in] pull_mode Pin pull mode
  */
-static inline void PB1_set_pull_mode(const enum port_pull_mode pull_mode)
+static inline void PB0_set_pull_mode(const enum port_pull_mode pull_mode)
 {
-	PORTB_set_pin_pull_mode(1, pull_mode);
+	PORTB_set_pin_pull_mode(0, pull_mode);
 }
 
 /**
- * \brief Set PB1 data direction
+ * \brief Set PB0 data direction
  *
  * Select if the pin data direction is input, output or disabled.
  * If disabled state is not possible, this function throws an assert.
@@ -34,42 +34,42 @@ static inline void PB1_set_pull_mode(const enum port_pull_mode pull_mode)
  *                      PORT_DIR_OFF = Disables the pin
  *                      (low power state)
  */
-static inline void PB1_set_dir(const enum port_dir dir)
+static inline void PB0_set_dir(const enum port_dir dir)
 {
-	PORTB_set_pin_dir(1, dir);
+	PORTB_set_pin_dir(0, dir);
 }
 
 /**
- * \brief Set PB1 level
+ * \brief Set PB0 level
  *
  * Sets output level on a pin
  *
  * \param[in] level true  = Pin level set to "high" state
  *                  false = Pin level set to "low" state
  */
-static inline void PB1_set_level(const bool level)
+static inline void PB0_set_level(const bool level)
 {
-	PORTB_set_pin_level(1, level);
+	PORTB_set_pin_level(0, level);
 }
 
 /**
- * \brief Toggle output level on PB1
+ * \brief Toggle output level on PB0
  *
  * Toggle the pin level
  */
-static inline void PB1_toggle_level()
+static inline void PB0_toggle_level()
 {
-	PORTB_toggle_pin_level(1);
+	PORTB_toggle_pin_level(0);
 }
 
 /**
- * \brief Get level on PB1
+ * \brief Get level on PB0
  *
  * Reads the level on a pin
  */
-static inline bool PB1_get_level()
+static inline bool PB0_get_level()
 {
-	return PORTB_get_pin_level(1);
+	return PORTB_get_pin_level(0);
 }
 
 /**

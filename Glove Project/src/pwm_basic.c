@@ -65,7 +65,7 @@ int8_t PWM_0_init()
 
 	// ICR1 = 0x0; /* Input capture value: 0x0 */
 
-	OCR1A = 0x3f; /* Counter top value: 0x3f */
+	OCR1A = 0xff; /* Counter top value: 0xff */
 
 	// OCR1B = 0x0; /* Output compare B: 0x0 */
 

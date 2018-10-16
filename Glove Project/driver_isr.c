@@ -35,3 +35,17 @@
 
 #include <driver_init.h>
 #include <compiler.h>
+
+ISR(PCINT0_vect)
+{
+	static volatile bool flag = 0;
+	/* Insert your pin change 0 interrupt handling code here */
+	if(!flag){
+		PORTC |= (1<<0);
+		flag = 1;
+	}
+	else{
+		PORTC &= ~(1 << 0);
+		flag = 0;
+	}
+}

@@ -18,6 +18,8 @@ src\adc_basic.c
 
 src\driver_init.c
 
+src\exint.c
+
 src\protected_io.S
 
 src\pwm_basic.c

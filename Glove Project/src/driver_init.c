@@ -36,6 +36,22 @@
 #include "driver_init.h"
 #include <system.h>
 
+void EXTERNAL_IRQ_0_initialization(void)
+{
+
+	// Set pin direction to input
+	PB0_set_dir(PORT_DIR_IN);
+
+	PB0_set_pull_mode(
+	    // <y> Pull configuration
+	    // <id> pad_pull_config
+	    // <PORT_PULL_OFF"> Off
+	    // <PORT_PULL_UP"> Pull-up
+	    PORT_PULL_OFF);
+
+	EXTERNAL_IRQ_0_init();
+}
+
 /* Configure pins and initialize registers */
 void ADC_0_initialization(void)
 {
@@ -45,16 +61,6 @@ void ADC_0_initialization(void)
 
 void PWM_0_initialization(void)
 {
-
-	// Set pin direction to output
-	PB1_set_dir(PORT_DIR_OUT);
-
-	PB1_set_level(
-	    // <y> Initial level
-	    // <id> pad_initial_level
-	    // <false"> Low
-	    // <true"> High
-	    false);
 
 	// Set pin direction to output
 	PB2_set_dir(PORT_DIR_OUT);
@@ -104,6 +110,8 @@ void system_init()
 	mcu_init();
 
 	sysctrl_init();
+
+	EXTERNAL_IRQ_0_initialization();
 
 	ADC_0_initialization();
 

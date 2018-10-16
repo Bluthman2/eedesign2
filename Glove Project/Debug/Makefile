@@ -55,6 +55,7 @@ C_SRCS +=  \
 ../main.c \
 ../src/adc_basic.c \
 ../src/driver_init.c \
+../src/exint.c \
 ../src/pwm_basic.c \
 ../src/usart_basic.c
 
@@ -75,6 +76,7 @@ examples/src/usart_basic_example.o \
 main.o \
 src/adc_basic.o \
 src/driver_init.o \
+src/exint.o \
 src/protected_io.o \
 src/pwm_basic.o \
 src/usart_basic.o
@@ -88,6 +90,7 @@ examples/src/usart_basic_example.o \
 main.o \
 src/adc_basic.o \
 src/driver_init.o \
+src/exint.o \
 src/protected_io.o \
 src/pwm_basic.o \
 src/usart_basic.o
@@ -101,6 +104,7 @@ examples/src/usart_basic_example.d \
 main.d \
 src/adc_basic.d \
 src/driver_init.d \
+src/exint.d \
 src/protected_io.d \
 src/pwm_basic.d \
 src/usart_basic.d
@@ -114,6 +118,7 @@ examples/src/usart_basic_example.d \
 main.d \
 src/adc_basic.d \
 src/driver_init.d \
+src/exint.d \
 src/protected_io.d \
 src/pwm_basic.d \
 src/usart_basic.d
@@ -182,6 +187,13 @@ src/adc_basic.o: ../src/adc_basic.c
 	
 
 src/driver_init.o: ../src/driver_init.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I".." -I"../Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.272\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall  -mmcu=atmega328pb  -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/exint.o: ../src/exint.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Arduino\hardware\tools\avr\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"../examples/include" -I"../include" -I"../utils" -I"../utils/assembler" -I".." -I"../Config" -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.272\include"  -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall  -mmcu=atmega328pb  -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
